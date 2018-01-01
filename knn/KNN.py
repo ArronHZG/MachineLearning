@@ -10,6 +10,7 @@
 
 from numpy import *
 
+
 # create a dataset which contains 4 samples with 2 classes
 def createDataSet():
     # create a matrix: each row as a sample
@@ -58,7 +59,8 @@ def kNNClassify(newInput, dataSet, labels, k):
     #         maxIndex = key
     # return maxIndex
 
-if __name__=='__main__':
+
+if __name__ == '__main__':
     dataSet, labels = createDataSet()
 
     testX = array([1.2, 1.0])
