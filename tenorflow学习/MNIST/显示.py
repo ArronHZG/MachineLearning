@@ -11,19 +11,26 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def show(num):
-    num = np.array(num).reshape((28, 28))
-    data = []
-    for i in range(28):
-        for j in range(28):
-            # print(i, j)
-            if num[i][j] != 0:
-                data.append((i, j, num[i][j]))
-
-    data = np.array(data)
-    # print(data)
-    plt.scatter(data[:, 0], data[:, 1])
-    plt.xticks(())
-    plt.yticks(())
+    # num = np.array(num).reshape((28, 28))
+    # data = []
+    # for i in range(28):
+    #     for j in range(28):
+    #         # print(i, j)
+    #         if num[i][j] != 0:
+    #             data.append((i, j, num[i][j]))
+    #
+    # data = np.array(data)
+    # # print(data)
+    # plt.scatter(data[:, 0], data[:, 1])
+    # plt.xticks(())
+    # plt.yticks(())
+    # plt.show()
+    im = np.array(num)
+    im = im.reshape(28, 28)
+    fig = plt.figure()
+    plt.axis('off')
+    plt.imshow(im, cmap='gray')
+    plt.savefig("test.png")  # 保存成文件
     plt.show()
 # n=500
 # x = np.random.normal(0, 1, n)
