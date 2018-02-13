@@ -11,7 +11,7 @@ import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
 import tensorflow.examples.tutorials.mnist.input_data as input_data
-from tenorflow学习.MNIST.显示 import show
+from tenorflowLearning.MNIST.显示 import show
 
 mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)  # 获取数据
 # Create the model
