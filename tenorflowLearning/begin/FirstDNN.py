@@ -22,8 +22,8 @@ def add_layer(inputs, in_size, out_size, name='layer', activation_function=None)
     '''
     with tf.name_scope(name):
         with tf.name_scope('weights'):
-            Weights = tf.Variable(tf.random_normal([in_size, out_size]), name='Weights')#绘制神经网络
-            tf.summary.histogram(name + '/weights', Weights)#绘制柱状图
+            Weights = tf.Variable(tf.random_normal([in_size, out_size]), name='Weights')  # 绘制神经网络
+            tf.summary.histogram(name + '/weights', Weights)  # 绘制柱状图
         with tf.name_scope('biases'):
             biases = tf.Variable(tf.zeros([1, out_size]) + 0.1, name='Biases')
             tf.summary.histogram(name + '/biases', biases)  # 绘制柱状图
@@ -58,7 +58,7 @@ prediction = add_layer(l1, 10, 1, name='output', activation_function=None)  # �
 with tf.name_scope('loss'):
     loss = tf.reduce_mean(tf.reduce_sum(tf.square(ys - prediction, name='reduce_sum'), reduction_indices=[1]),
                           name='reduce_mean')
-    tf.summary.scalar('loss',loss)
+    tf.summary.scalar('loss', loss)
 # 接下来，是很关键的一步，如何让机器学习提升它的准确率。
 # tf.train.GradientDescentOptimizer()中的值通常都小于1，这里取的是0.1，代表以0.1的效率来最小化误差loss。
 with tf.name_scope('train_step'):
@@ -103,6 +103,6 @@ for i in range(5000):
         lines = ax.plot(x_data, prediction_value, 'r-', lw=5)
         plt.pause(0.1)
         rs = sess.run(merged, feed_dict={xs: x_data, ys: y_data})
-        writer.add_summary(rs,i)
+        writer.add_summary(rs, i)
 # sess.close()
 plt.pause(10)

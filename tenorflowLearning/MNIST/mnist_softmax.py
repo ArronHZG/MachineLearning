@@ -31,7 +31,7 @@ train_step = tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy)
 # 评估我们的模型
 correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
-init = tf.initialize_all_variables()
+init = tf.global_variables_initializer()
 #保存模型
 saver = tf.train.Saver()
 
